@@ -24,9 +24,11 @@ public class QuayTags {
         String name;
     }
 
-    public static List<String> getAvailableTags(String imageName, HttpSender httpSender) {
+    public static List<String> getAvailableTags(String imageName, HttpSender httpSender, String token) {
         HttpSender.Request request = HttpSender.Request.build(
-                "https://registry.cigna.com/api/v1/repository/" + imageName + "/tag", httpSender).build();
+                        "https://registry.cigna.com/api/v1/repository/" + imageName + "/tag", httpSender)
+                .withAuthentication("Bearer", token)
+                .build();
         try (HttpSender.Response response = httpSender.send(request)) {
             if (response.isSuccessful()) {
                 try {

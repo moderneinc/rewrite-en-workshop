@@ -13,7 +13,7 @@ class QuayTagsTest {
 
     @Test
     void getAvailableTags() {
-        List<String> availableTags = QuayTags.getAvailableTags("cnp/cnp-maven-java17", httpSender);
+        List<String> availableTags = QuayTags.getAvailableTags("cnp/cnp-maven-java17", httpSender, "token");
         assertThat(availableTags).contains("1.0.0_1");
     }
 }

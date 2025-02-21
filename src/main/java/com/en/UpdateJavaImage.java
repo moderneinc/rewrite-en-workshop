@@ -8,7 +8,6 @@ import org.openrewrite.groovy.GroovyIsoVisitor;
 import org.openrewrite.groovy.GroovyParser;
 import org.openrewrite.groovy.tree.G;
 import org.openrewrite.internal.ListUtils;
-import org.openrewrite.internal.StringUtils;
 import org.openrewrite.ipc.http.HttpSender;
 import org.openrewrite.java.tree.J;
 import org.openrewrite.java.tree.Statement;
@@ -18,7 +17,6 @@ import org.openrewrite.semver.VersionComparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
 
@@ -47,9 +45,9 @@ public class UpdateJavaImage extends Recipe {
     @Nullable
     String versionPattern;
 
-    @Option(displayName = "Bearer token",
-            description = "Used to authenticate with the registry to retrieve tag versions.")
-    String bearerToken;
+    @Option(displayName = "Quay bearer token",
+            description = "Used to authenticate with Quay to retrieve available tag versions.")
+    String quayBearerToken;
 
     @Override
     public @NlsRewrite.DisplayName String getDisplayName() {
@@ -131,7 +129,8 @@ public class UpdateJavaImage extends Recipe {
             private String getImageVersion(@Nullable String currentVersion, ExecutionContext ctx) {
                 HttpSender httpSender = HttpSenderExecutionContextView.view(ctx).getHttpSender();
 
-                List<String> availableTags = QuayTags.getAvailableTags("cnp/cnp-docker-maven-java" + javaVersion, httpSender);
+                List<String> availableTags = QuayTags.getAvailableTags(
+                        "cnp/cnp-docker-maven-java" + javaVersion, httpSender, quayBearerToken);
                 Map<String, String> mostRecentByMajorMinorPatch = new HashMap<>();
                 for (String tag : availableTags) {
                     String[] parts = tag.split("_", 2);
