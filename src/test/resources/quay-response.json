@@ -1,0 +1,42 @@
+{
+  "tags": [
+    {
+      "name": "1.1.0_50",
+      "reversion": false,
+      "start_ts": 1736432211,
+      "manifest_digest": "sha256:24a88e34d38e0dc8d03ac583cebf8c185f3d163973362c6fa5e07b5dba7faac6",
+      "is_manifest_list": false,
+      "size": 247765012,
+      "last_modified": "Thu, 09 Jan 2025 14:16:51 -0000"
+    },
+    {
+      "name": "1.0.0_1",
+      "reversion": false,
+      "start_ts": 1736191127,
+      "manifest_digest": "sha256:391f907aa3fab54aa222ec4d5d00a5d7bd51cf2bf73b3182b4a64b6cac9f3d24",
+      "is_manifest_list": false,
+      "size": 437454324,
+      "last_modified": "Mon, 06 Jan 2025 19:18:47 -0000"
+    },
+    {
+      "name": "1.0.0_48",
+      "reversion": false,
+      "start_ts": 1733948503,
+      "manifest_digest": "sha256:3da2a34e5c663906b413ddd1f8112c7998ca84af474ea3f8ce98686cf26e1625",
+      "is_manifest_list": false,
+      "size": 436961986,
+      "last_modified": "Wed, 11 Dec 2024 20:21:43 -0000"
+    },
+    {
+      "name": "1.0.0_4",
+      "reversion": false,
+      "start_ts": 1732653370,
+      "manifest_digest": "sha256:d602e211da53a87d00cb043b6dd653f1d1545c303d6cd31adc349a3cedb1a9e5",
+      "is_manifest_list": false,
+      "size": 437190781,
+      "last_modified": "Tue, 26 Nov 2024 20:36:10 -0000"
+    }
+  ],
+  "page": 1,
+  "has_additional": false
+}
